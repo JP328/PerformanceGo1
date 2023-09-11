@@ -13,5 +13,6 @@ namespace ConsoleApp1.Repository
         public void Register(Brinquedo toy);
         public void Update(Brinquedo toy);
         public void Delete(int id);
+        public void ListToyByName(string name);
     }
 }

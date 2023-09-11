@@ -20,7 +20,7 @@ namespace ConsoleApp1.Controller
             if (toy == null)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"O brinquedo com Id {id} não foi encontrada");
+                Console.WriteLine($"O brinquedo com Id {id} não foi encontrado");
                 Console.ResetColor();
             }
             else
@@ -82,6 +82,15 @@ namespace ConsoleApp1.Controller
             }
 
             return null;
+        }
+
+        public void ListToyByName(string name)
+        {
+            var toysByName = from toy in toysList
+                                   where toy.GetName().Contains(name)
+                                   select toy;
+
+            toysByName.ToList().ForEach(t => t.View());
         }
     }
 }

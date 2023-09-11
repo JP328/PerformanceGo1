@@ -24,7 +24,8 @@ namespace ConsoleApp1
                     "\n2 - Listar brinquedos" +
                     "\n3 - Atualizar brinquedo inteiro" +
                     "\n4 - Apagar brinquedo" +
-                    "\n5 - Sair" +
+                    "\n5 - Procurar brinquedo por Nome" +
+                    "\n6 - Sair" +
                     "\n====================================================================================================");
 
                 try 
@@ -34,7 +35,7 @@ namespace ConsoleApp1
                         option = Convert.ToInt32(Console.ReadLine());
                     } while (option < 1 && option > 6);
 
-                    if (option == 5)
+                    if (option == 6)
                     {
                         Console.WriteLine("\n\nObrigado pela visita, volte Sempre!\n");
                         System.Environment.Exit(0);
@@ -160,8 +161,13 @@ namespace ConsoleApp1
 
                             toys.Delete(id);
                             break;
-                        //case 5:
-                        //    break;
+                        case 5:
+                            Console.WriteLine("Digite o nome do brinquedo:");
+                            name = Console.ReadLine();
+                            name ??= string.Empty;
+
+                            toys.ListToyByName(name);
+                            break;
                     }
                 } 
                 catch(FormatException) 
