@@ -1,4 +1,7 @@
-﻿namespace ConsoleApp1
+﻿using ConsoleApp1.Controller;
+using ConsoleApp1.Model;
+
+namespace ConsoleApp1
 {
     internal class Program
     {
@@ -8,11 +11,14 @@
             decimal price;
             int option = 0, type, id;
 
+            BrinquedoController toys = new();
+
+
             while (true)
             {
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine(
-                    "\n\n=============================== BEM VINDOS(AS) A TECHTOYS! ===========================================" +
+                    "\n\n=============================== BEM VINDOS(AS) A FUNNYTOYS! ===========================================" +
                     "\n\n================== Digite uma opção dentre as apresentadas abaixo: ==================================" +
                     "\n1 - Cadastrar brinquedo" +
                     "\n2 - Listar brinquedos" +
@@ -48,7 +54,7 @@
                             {
                                 Console.WriteLine("Digite o tipo do brinquedo (1 - Bonecos(as) ou 2 - Jogos De Mesa):");
                                 type = Convert.ToInt32(Console.ReadLine());
-                            } while (type > 2 && type < 1);
+                            } while (type != 1 && type != 2);
 
                             Console.WriteLine("Digite o preço do brinquedo:");
                             price = Convert.ToDecimal(Console.ReadLine());
@@ -71,7 +77,7 @@
                                 acessories = Console.ReadLine();
                                 acessories ??= string.Empty;
 
-                                //Cadastrar objeto:
+                                toys.Register(new Boneco(toys.GenerateNumber(), type, name, brand, description, price, gender, acessories ));
                             }
                             else
                             {
@@ -83,23 +89,21 @@
                                 rules = Console.ReadLine();
                                 rules ??= string.Empty;
 
-                                //Cadastrar objeto:
-                                //toys.register();
+                                toys.Register(new JogoDeMesa(toys.GenerateNumber(), type, name, brand, description, price, typeOfGame, rules ));
                             }
 
                             break;
                         case 2:
                             //Chamar método listAll()
+                            toys.ListAll();
                             break;
                         case 3:
                             Console.WriteLine("Digite o Id do brinquedo que deseja atualizar:");
                             id = Convert.ToInt32(Console.ReadLine());
 
-                            //Arrumar depois
-                            //var toy = toys.BuscarNaCollection(id);
-                            var brinquedo = 0;
+                            var toy = toys.SearchInCollection(id);
            
-                            if (brinquedo == 0)
+                            if (toy == null)
                             {
                                 Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine($"A brinquedo com id {id} não foi encontrada");
@@ -107,6 +111,9 @@
                             }
                             else
                             {
+                                Console.WriteLine("Digite o nome do brinquedo:");
+                                name = Console.ReadLine();
+                                name ??= string.Empty;
 
                                 Console.WriteLine("Digite o preço do brinquedo:");
                                 price = Convert.ToDecimal(Console.ReadLine());
@@ -119,8 +126,7 @@
                                 description = Console.ReadLine();
                                 description ??= string.Empty;
 
-                                //if (toy.GetToyType() == 1)
-                                if (1 == 1)
+                                if (toy.GetTypeOfToy() == 1)
                                     {
                                     Console.WriteLine("Digite o gênero do público alvo do boneco(a) (Masculino, Feminino ou Unisex): ");
                                     gender = Console.ReadLine();
@@ -131,7 +137,7 @@
                                     acessories ??= string.Empty;
 
                                     //Atualizar objeto:
-                                    //toys.update();
+                                    toys.Update(new Boneco(toy.GetId(), toy.GetTypeOfToy(), name, brand, description, price, gender, acessories));
                                 }
                                 else
                                 {
@@ -139,18 +145,20 @@
                                     typeOfGame = Console.ReadLine();
                                     typeOfGame ??= string.Empty;
 
-                                    //Atualizar objeto:
-                                    //toys.update();
+                                    Console.WriteLine("Digite as regras do jogo de Mesa:");
+                                    rules = Console.ReadLine();
+                                    rules ??= string.Empty;
+
+                                    toys.Update(new JogoDeMesa(toy.GetId(), toy.GetTypeOfToy(), name, brand, description, price, typeOfGame, rules));
                                 }
                             }
 
                             break;
                         case 4:
-                            Console.WriteLine("Digite o ID do produto");
+                            Console.WriteLine("Digite o ID do brinquedo");
                             id = Convert.ToInt32(Console.ReadLine());
 
-                            //Deletar objeto
-                            //toys.Delete(id);
+                            toys.Delete(id);
                             break;
                         //case 5:
                         //    break;

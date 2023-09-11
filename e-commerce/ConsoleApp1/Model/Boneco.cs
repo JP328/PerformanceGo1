@@ -40,7 +40,7 @@ namespace ConsoleApp1.Model
         {
             base.View();
             Console.WriteLine($"O público alvo do boneco(a) é {gender}");
-            Console.WriteLine($"O boneco(a) tem os seguintes acessórios: {gender}");
+            Console.WriteLine($"O boneco(a) tem os seguintes acessórios: {acessories}");
             Console.WriteLine("****************************************************");
         }
     }

@@ -96,9 +96,9 @@ namespace ConsoleApp1.Model
             Console.WriteLine("****************************************************");
             Console.WriteLine("                 Informações do Brinquedo:");
             Console.WriteLine("****************************************************");
-            Console.WriteLine($"Número do Id: {this.id}");
-            Console.WriteLine($"Nome do Brinquedo: {this.name}");
-            Console.WriteLine($"Preço do Brinquedo: {this.price}");
+            Console.WriteLine($"Número do Id: {id}");
+            Console.WriteLine($"Nome do Brinquedo: {name}");
+            Console.WriteLine($"Preço do Brinquedo: {price:C}");
             Console.WriteLine($"Tipo do Brinquedo: {writingType}");
         }
 
