@@ -30,7 +30,7 @@
 
                     if (option == 5)
                     {
-                        Console.WriteLine("\n\nObrigado por usar nosso sistema!\n");
+                        Console.WriteLine("\n\nObrigado pela visita, volte Sempre!\n");
                         System.Environment.Exit(0);
                         Console.ResetColor();
                     }
@@ -75,9 +75,13 @@
                             }
                             else
                             {
-                                Console.WriteLine("Digite o tipo do jogo de Mesa (tabuleiro ou Cartas:");
+                                Console.WriteLine("Digite o tipo do jogo de Mesa (tabuleiro ou Cartas): ");
                                 typeOfGame = Console.ReadLine();
-                                typeOfGame ??= string.Empty;
+                                typeOfGame ??= string.Empty; 
+                                
+                                Console.WriteLine("Digite as regras do jogo de Mesa:");
+                                rules = Console.ReadLine();
+                                rules ??= string.Empty;
 
                                 //Cadastrar objeto:
                                 //toys.register();

@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joaop\\Desktop\\Bootcamp-DotNet\\PerformanceGol1\\e-commerce\\ConsoleApp1\\E-commerce.csproj",
-      "projectName": "E-commerce",
-      "projectPath": "C:\\Users\\joaop\\Desktop\\Bootcamp-DotNet\\PerformanceGol1\\e-commerce\\ConsoleApp1\\E-commerce.csproj",
+      "projectUniqueName": "C:\\Users\\joaop\\Desktop\\Bootcamp-DotNet\\PerformanceGol1\\e-commerce\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectName": "ConsoleApp1",
+      "projectPath": "C:\\Users\\joaop\\Desktop\\Bootcamp-DotNet\\PerformanceGol1\\e-commerce\\ConsoleApp1\\ConsoleApp1.csproj",
       "packagesPath": "C:\\Users\\joaop\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\joaop\\Desktop\\Bootcamp-DotNet\\PerformanceGol1\\e-commerce\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",
